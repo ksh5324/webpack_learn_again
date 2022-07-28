@@ -5,11 +5,19 @@ module.exports = {
   context: path.resolve(__dirname, "src"),
   // entry: ["./app.js", "./index.js"]
   entry: {
-    home: "./app.js",
-    main: "./index.js",
+    home: {
+      import: "./app.js",
+      dependOn: "main",
+      filename: "pages/[name].bundle.js",
+    },
+    main: {
+      runtime: "runtime",
+      filename: "pages/[name].bundle.js",
+      import: "./index.js",
+    },
   },
   output: {
-    filename: "main.[name].js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },

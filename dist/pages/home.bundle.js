@@ -6,8 +6,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["home"],{
 
 /***/ "./app.js":
 /*!****************!*\
@@ -19,14 +18,10 @@ eval("var a = 3;\nconsole.log(a);\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ })
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./app.js"]();
-/******/ 	
-/******/ })()
-;
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ __webpack_require__.O(0, ["main"], () => (__webpack_exec__("./app.js")));
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ }
+]);

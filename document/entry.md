@@ -43,3 +43,40 @@ module.exports = {
 
 entry object에는 수많은 option이 존재한다.  
 이에 대해 하나씩 알아보겠다.
+
+1. import: entry에 경로에 해당
+2. dependOn: 의존하는 엔트리, 즉 현재 엔트리가 로드되기전 dependOn이 가르키는 entry가 먼저 로드되야함
+
+```js
+const path = require("path");
+
+module.exports = {
+  mode: "development",
+  context: path.resolve(__dirname, "src"),
+  // entry: ["./app.js", "./index.js"]
+  entry: {
+    home: "./app.js",
+    main: {
+      dependOn: "home",
+      import: "./index.js",
+    },
+  },
+  output: {
+    filename: "main.[name].js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+};
+
+// main이 로드 되기전 home이 먼저 로드되야함
+```
