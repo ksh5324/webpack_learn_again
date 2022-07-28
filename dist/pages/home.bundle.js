@@ -21,7 +21,6 @@ eval("var a = 3;\nconsole.log(a);\n\n//# sourceURL=webpack:///./app.js?");
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["main"], () => (__webpack_exec__("./app.js")));
-/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ var __webpack_exports__ = (__webpack_exec__("./app.js"));
 /******/ }
 ]);
