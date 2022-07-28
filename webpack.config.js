@@ -21,8 +21,23 @@ module.exports = {
       })
     ),
   output: {
+    library: "someLibName",
+    libraryTarget: "umd",
+    auxiliaryComment: {
+      root: "Root Comment",
+      commonjs: "CommonJS Comment",
+      commonjs2: "CommonJS2 Comment",
+      amd: "AMD Comment",
+    },
+    chunkLoadTimeout: 30000,
     filename: "[name].bundle.js",
+    charset: true,
+    // chunkFilename: (pathData) => {
+    //   return pathData.chunk.name === "main" ? "[name].js" : "[name]/[name].js";
+    // },
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/assets",
+    assetModuleFilename: "assets/[contenthash][ext]",
     clean: true,
   },
   module: {
@@ -32,6 +47,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },

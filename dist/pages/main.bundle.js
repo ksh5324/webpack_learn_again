@@ -6,7 +6,21 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["main"],{
+(function webpackUniversalModuleDefinition(root, factory) {
+	//CommonJS2 Comment
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	//AMD Comment
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	//CommonJS Comment
+	else if(typeof exports === 'object')
+		exports["someLibName"] = factory();
+	//Root Comment
+	else
+		root["someLibName"] = factory();
+})(self, () => {
+return (self["webpackChunksomeLibName"] = self["webpackChunksomeLibName"] || []).push([["main"],{
 
 /***/ "./index.js":
 /*!******************!*\
@@ -14,7 +28,7 @@
   \******************/
 /***/ (() => {
 
-eval("var b = 4;\nconsole.log(b + 1);\n\n//# sourceURL=webpack:///./index.js?");
+eval("var b = 4;\nconsole.log(b + 1);\n\n//# sourceURL=webpack://someLibName/./index.js?");
 
 /***/ })
 
@@ -22,5 +36,7 @@ eval("var b = 4;\nconsole.log(b + 1);\n\n//# sourceURL=webpack:///./index.js?");
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
 /******/ var __webpack_exports__ = (__webpack_exec__("./index.js"));
+/******/ return __webpack_exports__;
 /******/ }
 ]);
+});
